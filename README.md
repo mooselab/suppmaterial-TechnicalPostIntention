@@ -14,23 +14,28 @@ We also provide a tool to calculate the metrics used in our manuscript.
 `python ./tools/evaluation.py -h` shows the usage of the tool.
 
 ## About the dataset
-Path: `./dataset`
+The annotated dataset used in our study is shared under the `./dataset` folder.
+
+Format: We share dataset in `npy` format to facilitate model training and evaluation to replicate our experimental results.
+
 Number of posts: 784
+
 Intention labels are manually annotated.
+
 The source of posts can be identified by the url (`id` key).
 
-## Load data
+### Load data
 ```
 import numpy as np
 dataset = np.load(path, allow_pickle=True)
 ```
 
-## Data format
+### Data format
 
-### Keys
+#### Keys
 `label`, `id`, `title`, `description`, `description_raw`, `code`, `code_fea`
 
-### Example
+#### Example
 ```
 {'label': ['Errors'],
  'id': 'https://stackoverflow.com/questions/72557738',
@@ -42,6 +47,6 @@ dataset = np.load(path, allow_pickle=True)
  'code_fea': array([0.01638031, 0.01324874, 0.19329876, 0.13227859, 0.97585787])}
  ```
 
-### Dataset preprocessing
+#### Dataset preprocessing
 
 The dataset has been preprocessed. We preprocess the raw HTML using `BeautifulSoup` library. Sample code can be found in `tools` folder.
